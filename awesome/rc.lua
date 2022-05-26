@@ -48,10 +48,10 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "material.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "Monokai.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
+terminal = "st"
 editor = os.getenv("vim") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -321,7 +321,7 @@ globalkeys = gears.table.join(
 	    awful.util.spawn( "firefox" ) end,
 	    {description = " browser ", group = "browser" }),
     awful.key({ modkey, "Shift" },    "b",    function()
-	    awful.util.spawn( "brave-browser" ) end,
+	    awful.util.spawn( "chromium" ) end,
 	    {description = " chromium browser ", group = "browser" }),
     awful.key({ modkey },    "p",    function()
 	    awful.util.spawn( "pcmanfm" ) end,
@@ -559,4 +559,5 @@ awful.spawn.with_shell("xfce4-power-manager")
 awful.spawn.with_shell("emacs --daemon")
 awful.spawn.with_shell("lxappearance --restore")
 awful.spawn.with_shell("flameshot")
+awful.spawn.with_shell("xset r rate 300 50")
 

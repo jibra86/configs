@@ -10,6 +10,7 @@ blueman-applet &
 flameshot
 lxappearance --restore 
 numlockx &
+xset r rate 300 50
 while true; do
 	xsetroot -name "|  $(acpi -b | awk '{print $4}' | sed s/,//) !|!  $(date '+%Y-%m-%d %H:%M:%S') |"
 	sleep 1s
