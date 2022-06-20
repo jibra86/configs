@@ -48,10 +48,10 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 --beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "Monokai.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme2.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "st"
+terminal = "kitty"
 editor = os.getenv("vim") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -172,8 +172,8 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "|:Brow|", "|:Edit|", "|:Term|", "|:Fold|" }, s, awful.layout.layouts[1])
--- , " |:File| ", " |:Music| ", " |:Vim| ", " |:Down| ", " |:Vid| "
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+-- , "|:Brow|", "|:Edit|", "|:Term|", "|:Fold|", " |:File| ", " |:Music| ", " |:Vim| ", " |:Down| ", " |:Vid| "
   
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -200,7 +200,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -547,7 +547,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 13
+beautiful.useless_gap = 2
 
 -- Autostart
 awful.spawn.with_shell("nitrogen --restore")
@@ -561,3 +561,13 @@ awful.spawn.with_shell("lxappearance --restore")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("xset r rate 300 50")
 
+-- Stuff
+
+client.connect_signal("focus", function(c)
+    c.border_color = beautiful.border_focus
+    c.opacity = 1
+  end)
+client.connect_signal("unfocus", function(c)
+    c.border_color = beautiful.border_normal
+    c.opacity = 0.7
+  end)
