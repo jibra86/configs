@@ -321,10 +321,10 @@ globalkeys = gears.table.join(
 	    awful.util.spawn( "firefox" ) end,
 	    {description = " browser ", group = "browser" }),
     awful.key({ modkey, "Shift" },    "b",    function()
-	    awful.util.spawn( "chromium" ) end,
+	    awful.util.spawn( "flatpak run app/com.brave.Browser" ) end,
 	    {description = " chromium browser ", group = "browser" }),
     awful.key({ modkey },    "p",    function()
-	    awful.util.spawn( "pcmanfm" ) end,
+	    awful.util.spawn( "thunar" ) end,
 	    {description = " file browser ", group = "file" }),
     awful.key({ modkey, "Control" },    "d",    function()
 	    awful.util.spawn( "discord" ) end,
@@ -560,7 +560,7 @@ awful.spawn.with_shell("emacs --daemon")
 awful.spawn.with_shell("lxappearance --restore")
 awful.spawn.with_shell("flameshot")
 awful.spawn.with_shell("xset r rate 300 50")
-
+awful.spawn.with_shell('/usr/libexec/xfce-polkit')
 -- Stuff
 
 client.connect_signal("focus", function(c)
