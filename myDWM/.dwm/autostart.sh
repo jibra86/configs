@@ -3,11 +3,10 @@
 nitrogen --restore 
 picom -f &
 # compton &
-emacs --daemon
+#emacs --daemon
 # xfce4-power-manager 
 blueman-applet &
-# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-flameshot
+/usr/libexec/xfce-polkit &
 lxappearance --restore 
 numlockx &
 xset r rate 300 50
